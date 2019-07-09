@@ -1,10 +1,10 @@
-[![Build status](https://robertoprevato.visualstudio.com/wrktoolbox/_apis/build/status/wrktoolbox-xlsx-CI)](https://robertoprevato.visualstudio.com/wrktoolbox/_build/latest?definitionId=17) [![pypi](https://img.shields.io/pypi/v/wrktoolbox-xlsx.svg?color=blue)](https://pypi.org/project/wrktoolbox-xlsx/) [![Test coverage](https://img.shields.io/azure-devops/coverage/robertoprevato/wrktoolbox/17.svg)](https://robertoprevato.visualstudio.com/wrktoolbox/_build?definitionId=17)
+[![Build status](https://robertoprevato.visualstudio.com/wrktoolbox/_apis/build/status/wrktoolbox-xlsx-CI)](https://robertoprevato.visualstudio.com/wrktoolbox/_build/latest?definitionId=17) [![pypi](https://img.shields.io/pypi/v/wrktools-xlsx.svg?color=blue)](https://pypi.org/project/wrktools-xlsx/) [![Test coverage](https://img.shields.io/azure-devops/coverage/robertoprevato/wrktoolbox/17.svg)](https://robertoprevato.visualstudio.com/wrktoolbox/_build?definitionId=17)
 
 # wrktoolbox-xlsx
 XLSX spreadsheet reports for [wrktoolbox](https://github.com/RobertoPrevato/wrktoolbox).
 
 ```bash
-pip install wrktoolbox-xlsx
+pip install wrktools-xlsx
 ```
 
 ## Example configuration

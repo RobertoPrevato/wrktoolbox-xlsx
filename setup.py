@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 
-setup(name='wrktoolbox-xlsx',
+setup(name='wrktools-xlsx',
       version='0.0.1',
       description='XLSX spreadsheet reports for wrktoolbox.',
       long_description=readme(),
