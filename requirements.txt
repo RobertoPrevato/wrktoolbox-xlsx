@@ -1,4 +1,4 @@
-wrktoolbox
+wrktools
 XlsxWriter
 pytest
 pytest-cov
