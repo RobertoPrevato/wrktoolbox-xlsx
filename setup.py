@@ -23,7 +23,7 @@ setup(name='wrktools-xlsx',
       keywords='wrk runner benchmarks load performance tests xlsx results',
       license='MIT',
       packages=['wrktoolboxxlsx'],
-      install_requires=['wrktoolbox',
+      install_requires=['wrktools',
                         'xlsxwriter'],
       include_package_data=True,
       zip_safe=False)
