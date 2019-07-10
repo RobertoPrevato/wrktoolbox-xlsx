@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='wrktools-xlsx',
-      version='0.0.2',
+      version='0.0.3',
       description='XLSX spreadsheet reports for wrktoolbox.',
       long_description=readme(),
       long_description_content_type='text/markdown',
