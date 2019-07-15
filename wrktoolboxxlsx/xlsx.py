@@ -27,8 +27,9 @@ class XLSXWriter(ReportWriter):
 
     def __init__(self,
                  file_name: str = None,
-                 chart_style: Optional[int] = 12,
-                 percentiles: Optional[Sequence[str]] = None):
+                 chart_style: Optional[int] = 4,
+                 percentiles: Optional[Sequence[str]] = None,
+                 graphs_title_prefix: Optional[str] = None):
         if not file_name:
             file_name = datetime.now().strftime('%Y-%m-%d-%H-%M-%S') + '-output.xlsx'
         self.percentiles_to_display = percentiles
@@ -61,6 +62,7 @@ class XLSXWriter(ReportWriter):
         self.mean_latency_by_location = self._prepare_mean_latency_by_location_sheet()
         self._configured_goals = []
         self._avg_by_location = defaultdict(list)
+        self.graphs_title_prefix = graphs_title_prefix or ''
 
     def _prepare_suites_sheet(self):
         workbook = self.workbook
@@ -289,6 +291,11 @@ class XLSXWriter(ReportWriter):
         self._create_avg_latency_graph()
         self._create_mean_latency_by_location_graph()
 
+    def _get_graph_title(self, title: str) -> str:
+        if self.graphs_title_prefix:
+            return f'{self.graphs_title_prefix} - {title}'
+        return title
+
     def _create_mean_latency_by_location_graph(self):
         workbook = self.workbook
         chart = workbook.add_chart({'type': 'column'})
@@ -302,11 +309,10 @@ class XLSXWriter(ReportWriter):
             'values': f'={sheet_name}!$B$2:$B${sheet.row}'
         })
 
-        chart.set_title({'name': 'Latency mean (ms)'})
+        chart.set_title({'name': self._get_graph_title('Latency mean (ms)')})
         chart.x_scale = 2.5
         chart.y_scale = 2.5
 
-        chart.set_x_axis({'text_axis': True})
         self.mean_latency_by_location.insert_chart('E2', chart, {'x_offset': 0, 'y_offset': 0})
 
         chart.set_style(self.chart_style)
@@ -324,7 +330,7 @@ class XLSXWriter(ReportWriter):
             'values': f'={sheet_name}!$C$2:$C${sheet.row}'
         })
 
-        chart.set_title({'name': 'Avg. latency (ms)'})
+        chart.set_title({'name': self._get_graph_title('Avg. latency (ms)')})
         chart.x_scale = 2.5
         chart.y_scale = 2.5
 
