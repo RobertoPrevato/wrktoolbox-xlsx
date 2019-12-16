@@ -50,7 +50,7 @@ class XLSXWriter(ReportWriter):
             'bold': True,
             'bg_color': '#29ef28'
         })
-        self.chart_style = chart_style
+        self.chart_style = int(chart_style)
         self.date_format = self.workbook.add_format({'num_format': 'yyyy-mm-dd'})
         self.datetime_format = self.workbook.add_format({'num_format': 'yyyy-mm-dd HH:MM:SS'})
         self.row_format1 = self.workbook.add_format({'bg_color': '#FFFFFF'})
